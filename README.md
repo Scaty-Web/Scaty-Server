@@ -1,0 +1,1 @@
+# Scaty-Server
