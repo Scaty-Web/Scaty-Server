@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scaty Server</title>
+  <style>
+    /* Frutiger Aero esintili mor tema */
+    :root {
+      --purple-1: #6a00ff;
+      --purple-2: #8f5bff;
+      --glass-bg: rgba(255, 255, 255, 0.18);
+      --glass-border: rgba(255, 255, 255, 0.35);
+      --text-main: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 200vh;
+      background: linear-gradient(180deg, var(--purple-1), #2b004f);
+      color: var(--text-main);
+    }
+
+    header {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    header p {
+      opacity: 0.9;
+    }
+
+    .section {
+      display: flex;
+      justify-content: center;
+      padding: 80px 20px;
+    }
+
+    .box {
+      width: 100%;
+      max-width: 700px;
+      padding: 30px;
+      border-radius: 22px;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.35),
+        var(--glass-bg)
+      );
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.5),
+        0 20px 40px rgba(0,0,0,0.35);
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 0.8s ease;
+    }
+
+    .box.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .box h2 {
+      margin-top: 0;
+      font-size: 1.8rem;
+      color: #f3e9ff;
+    }
+
+    .box p {
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Scaty Server</h1>
+  </header>
+
+  <section class="section">
+    <div class="box reveal">
+      <h2>"Senin için server"</h2>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="box reveal">
+      <h2>Biz kimiz?</h2>
+      <p>
+        Scaty Web ORG. tarafından yapılan, GitHub ile geliştirilen bir Scaty Server'dır.
+        Kendi web sitenizde Scaty Server'a ücretsiz olarak bağlanabiliyorsunuz.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="box reveal">
+      <h2>Server İçeriği</h2>
+      <p>
+        Server'ın içinde HTML, CSS, JS dosyalarımız bulunur.
+      </p>
+      <p><strong>Yakında...</strong></p>
+    </div>
+  </section>
+
+  <footer>
+    © Scaty Web ORG. 2026 Tüm Hakları Saklıdır
+  </footer>
+
+  <script>
+    // Scroll ile kutuları gösterme
+    const reveals = document.querySelectorAll('.reveal');
+
+    function onScroll() {
+      const trigger = window.innerHeight * 0.85;
+      reveals.forEach(box => {
+        const top = box.getBoundingClientRect().top;
+        if (top < trigger) {
+          box.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+
+</body>
+</html>
